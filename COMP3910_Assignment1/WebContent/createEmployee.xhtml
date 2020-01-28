@@ -1,0 +1,57 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>IGNORED</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+
+		<ui:define name="heading">
+            <ui:include src="/sections/timesheet/header.xhtml"/>
+         </ui:define>
+
+		<ui:define name="content">
+			<div id="wrapper">
+				<h:form>
+					<table class="login">
+						<tr class="login">
+							<td class="login">#{msgs.empNumberLabel}</td>
+							<td class="login"><h:inputText
+									value="#{db.editableEmployee.empNumber}" required="true" /></td>
+						</tr>
+						<tr class="login">
+							<td class="login">#{msgs.nameLabel}</td>
+							<td class="login"><h:inputText
+									value="#{db.editableEmployee.name}" required="true" /></td>
+						</tr>
+						<tr class="login">
+							<td class="login">#{msgs.namePrompt}</td>
+							<td class="login"><h:inputText
+									value="#{db.editableEmployee.userName}" required="true" /></td>
+						</tr>
+						<tr class="login">
+							<td class="login">#{msgs.passwordPrompt}</td>
+							<td class="login"><h:inputSecret
+									value="#{db.editablePassword}" required="true" /></td>
+						</tr>
+					</table>
+					<p>
+						<h:commandButton value="#{msgs.addLabel}"
+							action="#{db.addEmployee()}" />
+						<h:commandButton value="#{msgs.backLabel}" action="employeeList" />
+					</p>
+				</h:form>
+			</div>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

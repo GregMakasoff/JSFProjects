@@ -1,0 +1,69 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>IGNORED</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+
+		<ui:define name="heading">
+            <ui:include src="/sections/timesheet/header.xhtml"/>
+         </ui:define>
+
+		<ui:define name="content">
+			<div id="wrapper">
+				<h:form onkeypress="return event.keyCode != 13;">
+					<h:dataTable value="#{db.employees}" var="e" styleClass="customers"
+						rowClasses="odd,even">
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.empNumberLabel}"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{e.empNumber}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.nameLabel}"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{e.name}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.namePrompt}"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{e.userName}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.passwordPrompt}"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{db.getPasswordByIndex(db.getEmployeeNum(e))}" />
+						</h:column>
+						<h:column>
+							<h:commandButton action="#{db.deleteEmployee(e)}"
+								value="#{msgs.deleteLabel}" rendered="#{not e.admin}" />
+							<h:commandButton action="#{db.editEmployee(e)}"
+								value="#{msgs.editLabel}" rendered="#{not e.admin}" />
+						</h:column>
+					</h:dataTable>
+					<p><h:commandButton action="createEmployee" value="#{msgs.addLabel}" />
+					<h:commandButton value="#{msgs.backLabel}" action="viewUser" /></p>
+				</h:form>
+			</div>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

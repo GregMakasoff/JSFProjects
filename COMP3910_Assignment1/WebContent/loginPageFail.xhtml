@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<title>IGNORED</title>
+</head>
+<body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="windowTitle">
+            #{msgs.loginHeading}
+         </ui:define>
+
+		<ui:define name="heading">
+            <ui:include src="/sections/login/header.xhtml"/>
+         </ui:define>
+         
+         <ui:define name="content">
+            <h:form>
+            	<p>#{msgs.loginFail}</p>
+				<p>#{msgs.loginInstructions}</p>
+               <h:panelGrid columns="2">
+                  #{msgs.namePrompt}
+                  <h:inputText id="name" value="#{db.currentCredentials.userName}"/>
+                  #{msgs.passwordPrompt}
+                  <h:inputSecret id="password" value="#{db.currentCredentials.password}"/>
+               </h:panelGrid>
+               <p>
+                  <h:commandButton value="#{msgs.loginButtonText}"
+                                   action="#{db.login()}"/>
+               </p>
+            </h:form>
+         </ui:define>
+
+	</ui:composition>
+</body>
+
+</html>

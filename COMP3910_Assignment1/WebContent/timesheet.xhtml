@@ -1,0 +1,179 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>IGNORED</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+
+		<ui:define name="heading">
+			<ui:include src="/sections/timesheet/header.xhtml" />
+		</ui:define>
+
+		<ui:define name="content">
+			<div id="wrapper">
+
+				<h:form onkeypress="return event.keyCode != 13;">
+					<h:dataTable value="#{db.currentTimesheet.details}" var="tsr"
+						styleClass="timetables" rowClasses="odd,even">
+						<f:facet name="header">
+							<div>
+								<div style="float: left; padding-right: 30px;">
+									<h:outputText value="#{msgs.empNumberLabel}"
+										class="timesheetInfoLabel" />
+									<h:outputText value="#{db.currentEmployee.empNumber}" />
+								</div>
+								<div style="float: right">
+									<h:outputText value="#{msgs.weekNumberLabel}"
+										class="timesheetInfoLabel" />
+									<h:outputText value="#{db.currentTimesheet.weekNumber}"
+										style="padding-right: 30px;" />
+									<h:outputText value="#{msgs.endDateLabel}"
+										class="timesheetInfoLabel" />
+									<h:outputText value="#{db.currentTimesheet.weekEnding}" />
+								</div>
+							</div>
+							<div>
+								<h:outputText value="#{msgs.nameLabel}"
+									class="timesheetInfoLabel" />
+								<h:outputText value="#{db.currentEmployee.name}" />
+							</div>
+						</f:facet>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.projectLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="10" value="#{tsr.projectID}" label="project" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.wpLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="10" value="#{tsr.workPackage}" label="wp" />
+							<f:facet name="footer">
+								<h:outputText value="#{msgs.totalLabel}"></h:outputText>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.satLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="1" value="#{tsr.sat}" label="sat">
+								<f:validateDoubleRange minimum="0.1" maximum="24.0" />
+							</h:inputText>
+							<f:facet name="footer">
+								<h:outputText value="#{db.totalSat}"></h:outputText>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.sunLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="1" value="#{tsr.sun}" label="sun">
+								<f:validateDoubleRange minimum="0.1" maximum="24.0" />
+							</h:inputText>
+							<f:facet name="footer">
+								<h:outputText value="#{db.totalSun}"></h:outputText>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.monLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="1" value="#{tsr.mon}" label="mon">
+								<f:validateDoubleRange minimum="0.1" maximum="24.0" />
+							</h:inputText>
+							<f:facet name="footer">
+								<h:outputText value="#{db.totalMon}"></h:outputText>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.tueLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="1" value="#{tsr.tue}" label="tue">
+								<f:validateDoubleRange minimum="0.1" maximum="24.0" />
+							</h:inputText>
+							<f:facet name="footer">
+								<h:outputText value="#{db.totalTue}"></h:outputText>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.wedLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="1" value="#{tsr.wed}" label="wed">
+								<f:validateDoubleRange minimum="0.1" maximum="24.0" />
+							</h:inputText>
+							<f:facet name="footer">
+								<h:outputText value="#{db.totalWed}"></h:outputText>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.thuLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="1" width="30px" value="#{tsr.thu}" label="thu">
+								<f:validateDoubleRange minimum="0.1" maximum="24.0" />
+							</h:inputText>
+							<f:facet name="footer">
+								<h:outputText value="#{db.totalThu}"></h:outputText>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.friLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="1" width="30px" value="#{tsr.fri}" label="fri">
+								<f:validateDoubleRange minimum="0.1" maximum="24.0" />
+							</h:inputText>
+							<f:facet name="footer">
+								<h:outputText value="#{db.totalFri}"></h:outputText>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.totalLabel}"></h:outputText>
+							</f:facet>
+							<h:outputText size="2" value="#{tsr.sum}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs.noteLabel}"></h:outputText>
+							</f:facet>
+							<h:inputText size="20" value="#{tsr.notes}" />
+						</h:column>
+
+					</h:dataTable>
+					<p>
+						<h:commandButton value="#{msgs.addRowLabel}"
+							action="#{db.addTimesheetRow()}" />
+						<h:commandButton value="#{msgs.saveLabel}" action="result" />
+						<h:commandButton value="#{msgs.backLabel}" action="viewUser" />
+					</p>
+					<h:messages style="color:red" />
+				</h:form>
+			</div>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

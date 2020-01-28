@@ -1,0 +1,85 @@
+@charset "ISO-8859-1";
+
+body {
+	margin: 0;
+}
+
+#heading {
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	background: black;
+	text-align: center;
+	display: table;
+}
+
+#heading div {
+	display: table-cell;
+	vertical-align: middle;
+	color: white;
+	font-size: 24px;
+}
+
+#navLeft {
+	margin-top: 100px;
+	float: left;
+	width: 10%;
+	background: lightGrey;
+	height: 100vh;
+	position: fixed;
+}	
+
+.navButton {
+	margin-top: 10px;
+	width: 100%;
+	height: 30px;
+	background: grey;
+	border: none;
+}
+
+.navButton:focus {
+	outline: 0;
+}
+
+.navButton:hover {
+	background: #888888;
+}
+
+#content {
+	margin-top: 100px;
+	width: 90%;
+	float: right;
+}
+
+thead tr th {
+	border-left: solid black 1px;
+	border-right: solid black 1px;
+	padding: 3px 5px;
+}
+
+table {
+    background-color: #aaa;
+}
+
+thead tr th:nth-child(12) {
+	width: 110px;
+}
+
+td {
+    padding: 3px 10px;
+}
+
+.even {
+   text-align: center;
+   background-color: white;
+}
+
+.odd {
+   text-align: center;
+   background-color: black;
+   color: white;
+}
+
+.it {
+	white-space: normal;
+}
