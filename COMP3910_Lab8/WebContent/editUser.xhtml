@@ -1,0 +1,94 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<title>Add User</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td>#{msgs.IDlabel}</td>
+				<td><h:inputText value="#{con.editableSupplier.supID}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.supName}</td>
+				<td><h:inputText value="#{con.editableSupplier.supName}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.contName}</td>
+				<td><h:inputText value="#{con.editableSupplier.contName}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.contTitle}</td>
+				<td><h:inputText value="#{con.editableSupplier.contTitle}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.address}</td>
+				<td><h:inputText value="#{con.editableSupplier.address}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.city}</td>
+				<td><h:inputText value="#{con.editableSupplier.city}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.postalCode}</td>
+				<td><h:inputText value="#{con.editableSupplier.postCode}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.stateOrProv}</td>
+				<td><h:inputText value="#{con.editableSupplier.stateOrProv}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.country}</td>
+				<td><h:inputText value="#{con.editableSupplier.country}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.phoneNumber}</td>
+				<td><h:inputText value="#{con.editableSupplier.phoneNum}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.faxNum}</td>
+				<td><h:inputText value="#{con.editableSupplier.faxNum}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.payTerms}</td>
+				<td><h:inputText value="#{con.editableSupplier.payTerms}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.email}</td>
+				<td><h:inputText value="#{con.editableSupplier.email}"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.notes}</td>
+				<td><h:inputText value="#{con.editableSupplier.notes}"
+						required="true" /></td>
+			</tr>
+		</table>
+		<p>
+			<h:commandButton value="#{msgs.saveLabel}"
+				action="#{con.saveSupplier()}" />
+		</p>
+	</h:form>
+</h:body>
+</html>

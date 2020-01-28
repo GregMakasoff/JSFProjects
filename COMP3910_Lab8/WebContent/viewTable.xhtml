@@ -1,0 +1,139 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<title>Lab 8</title>
+</h:head>
+
+<h:body>
+
+	<h:form onkeypress="return event.keyCode != 13;">
+		<h:inputText value="#{con.searchText}" />
+		<h:commandButton value="#{msgs.searchLabel}" />
+		<h:commandButton action="#{con.clearText()}"
+			value="#{msgs.clearLabel}" rendered="#{not con.editable}" />
+		
+		<h:dataTable value="#{con.suppliers}" var="sup"
+			styleClass="timetables" rowClasses="odd,even">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.IDlabel}"></h:outputText>
+				</f:facet>
+				<h:outputText size="10" value="#{sup.supID}" label="ID" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.supName}"></h:outputText>
+				</f:facet>
+				<h:outputText size="10" value="#{sup.supName}" label="supName" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.contName}"></h:outputText>
+				</f:facet>
+				<h:outputText size="2" value="#{sup.contName}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.contTitle}"></h:outputText>
+				</f:facet>
+				<h:outputText size="1" value="#{sup.contTitle}" label="conTitle"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.address}"></h:outputText>
+				</f:facet>
+				<h:outputText size="10" value="#{sup.address}" label="project" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.city}"></h:outputText>
+				</f:facet>
+				<h:outputText size="10" value="#{sup.city}" label="city" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.postalCode}"></h:outputText>
+				</f:facet>
+				<h:outputText size="2" value="#{sup.postCode}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.stateOrProv}"></h:outputText>
+				</f:facet>
+				<h:outputText size="1" value="#{sup.stateOrProv}" label="sOrP"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.country}"></h:outputText>
+				</f:facet>
+				<h:outputText size="10" value="#{sup.country}" label="project" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.phoneNumber}"></h:outputText>
+				</f:facet>
+				<h:outputText size="10" value="#{sup.phoneNum}" label="wp" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.faxNum}"></h:outputText>
+				</f:facet>
+				<h:outputText size="2" value="#{sup.faxNum}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.payTerms}"></h:outputText>
+				</f:facet>
+				<h:outputText size="1" value="#{sup.payTerms}" label="payTerms"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.email}"></h:outputText>
+				</f:facet>
+				<h:outputText size="10" value="#{sup.email}" label="email" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.notes}"></h:outputText>
+				</f:facet>
+				<h:outputText size="10" value="#{sup.notes}" label="notes" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.actions}"></h:outputText>
+				</f:facet>
+				<h:commandButton action="#{con.deleteSupplier(sup)}"
+					value="#{msgs.delete}" />
+				<h:commandButton action="#{con.editSupplier(sup)}"
+					value="#{msgs.edit}" rendered="#{not con.editable}" />
+			</h:column>
+		</h:dataTable>
+		<p>
+			<h:commandButton value="#{msgs.addSupLabel}"
+				action="addUser" />
+		</p>
+		<h:messages style="color:red" />
+	</h:form>
+</h:body>
+</html>
