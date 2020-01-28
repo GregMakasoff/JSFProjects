@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>#{msgs.pageTitle}</title>
+	<style>
+input {
+	width: 100%;
+}
+
+textArea {
+	resize: none;
+}
+
+h2 {
+	margin: 0;
+}
+
+#problemReportTable {
+	border-collapse: collapse;
+}
+
+#problemReportTable td {
+	min-width: 200px;
+	padding-right: 15px;
+}
+
+#problemReportTable tr {
+	height: 25px;
+}
+
+.message {
+	color: red;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		<table id="problemReportTable">
+			<tr>
+				<td colspan="2"><h2>#{msgs.headerTitleForm}</h2></td>
+				<td>#{msgs.number}</td>
+				<td><h:inputText id="number" required="true"
+						label="#{msgs.number}" value="#{problemReport.number}">
+						<f:convertNumber/>
+					</h:inputText></td>
+				<td class="message"><h:message for="number" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" />
+				<td>#{msgs.dateOfIssue}</td>
+				<td><h:inputText id="dateOfIssue" required="true"
+						label="#{msgs.dateOfIssue}" value="#{problemReport.dateOfIssue}" >
+						<f:convertDateTime pattern="d MMM yyyy"/></h:inputText></td>
+				<td class="message"><h:message for="dateOfIssue" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.project}</td>
+				<td><h:inputText id="project" required="true"
+						label="#{msgs.project}" value="#{problemReport.project}" ></h:inputText></td>
+				<td>#{msgs.originator}</td>
+				<td><h:inputText id="originator" required="true"
+						label="#{msgs.originator}" value="#{problemReport.originator}" ></h:inputText></td>
+				<td class="message"><h:message for="project" /> <br />
+				<h:message for="originator" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.title}</td>
+				<td colspan="3"><h:inputText id="title" required="true"
+						label="#{msgs.title}" value="#{problemReport.title}" ></h:inputText></td>
+				<td class="message"><h:message for="title" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.modulesAffected}</td>
+				<td colspan="3"><h:inputText id="modulesAffected"
+						required="true" label="#{msgs.modulesAffected}"
+						value="#{problemReport.modulesAffected}" ></h:inputText></td>
+				<td class="message"><h:message for="modulesAffected" /></td>
+			</tr>
+			<tr>
+				<td colspan="4">#{msgs.description}</td>
+				<td class="message"><h:message for="description" /></td>
+			</tr>
+			<tr>
+				<td colspan="4"><h:inputTextarea id="description"
+						required="true" label="#{msgs.description}"
+						value="#{problemReport.description}" rows="10" cols="100" ></h:inputTextarea></td>
+			</tr>
+			<tr>
+				<td colspan="4">#{msgs.recommendSolution}</td>
+				<td class="message"><h:message for="recommendSolution" /></td>
+			</tr>
+			<tr>
+				<td colspan="4"><h:inputTextarea id="recommendSolution"
+						required="true" label="#{msgs.recommendSolution}"
+						value="#{problemReport.recommendSolution}" rows="10" cols="100" ></h:inputTextarea></td>
+			</tr>
+			<tr>
+				<td>#{msgs.priority}</td>
+				<td><h:selectOneMenu id="priority" label="#{msgs.priority}" required="true"
+						value="#{problemReport.priority}">
+						<f:selectItems value="#{problemReport.levelsPriority}" />
+					</h:selectOneMenu></td>
+				<td>#{msgs.severity}</td>
+				<td><h:selectOneMenu id="severity" label="#{msgs.severity}"
+						value="#{problemReport.severity}" required="true"> 
+						<f:selectItems value="#{problemReport.levelsSeverity}" />
+					</h:selectOneMenu></td>
+				<td class="message"><h:message for="priority" /><br /> <h:message
+						for="severity" /></td>
+			</tr>
+			<tr>
+				<td>#{msgs.dateAssigned}</td>
+				<td><h:inputText id="dateAssigned" required="true"
+						label="#{msgs.dateAssigned}" value="#{problemReport.dateAssigned}" >
+						<f:convertDateTime pattern="d MMM yyyy"/></h:inputText></td>
+				<td>#{msgs.dateFixed}</td>
+				<td><h:inputText id="dateFixed" required="true"
+						label="#{msgs.dateFixed}" value="#{problemReport.dateFixed}" >
+						<f:convertDateTime pattern="d MMM yyyy"/></h:inputText></td>
+				<td class="message"><h:message for="dateAssigned" /><br /> <h:message
+						for="dateFixed" /></td>
+			</tr>
+			<tr />
+			<tr>
+				<td><h:commandButton value="#{msgs.submit}"
+						action="displayProblem" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>

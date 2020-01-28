@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>#{msgs.pageTitle}</title>
+	<style>
+input {
+	width: 100%;
+}
+
+h2 {
+	margin: 0;
+}
+
+textArea {
+	resize: none;
+}
+
+#problemReportTable {
+	width: 800px;
+	border-collapse: collapse;
+}
+
+#problemReportTable td {
+	max-width: 200px;
+	min-width: 200px;
+	padding-right: 15px;
+}
+
+#problemReportTable tr {
+	height: 25px;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		<table id="problemReportTable">
+			<tr>
+				<td colspan="2"><h2>
+						<b>#{msgs.headerTitleForm}</b>
+					</h2></td>
+				<td><b>#{msgs.number}</b></td>
+				<td><h:outputText value="#{problemReport.number}" />
+				</td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td colspan="2" />
+				<td><b>#{msgs.dateOfIssue}</b></td>
+				<td><h:outputText value="#{problemReport.dateOfIssue}" >
+				<f:convertDateTime pattern="d MMM. yyyy"></f:convertDateTime>
+				</h:outputText></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td><b>#{msgs.project}</b></td>
+				<td><h:outputText value="#{problemReport.project}" /></td>
+				<td><b>#{msgs.originator}</b></td>
+				<td><h:outputText value="#{problemReport.originator}" /></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td><b>#{msgs.title}</b></td>
+				<td colspan="3"><h:outputText value="#{problemReport.title}" /></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td><b>#{msgs.modulesAffected}</b></td>
+				<td colspan="3"><h:outputText
+						value="#{problemReport.modulesAffected}" /></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td colspan="4"><b>#{msgs.description}</b></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td colspan="4"><h:inputTextarea readonly="true"
+						value="#{problemReport.description}" rows="10" cols="100" /></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td colspan="4"><b>#{msgs.recommendSolution}</b></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td colspan="4"><h:inputTextarea readonly="true"
+						value="#{problemReport.recommendSolution}" rows="10" cols="100" /></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td><b>#{msgs.priority}</b></td>
+				<td><h:outputText value="#{problemReport.priority}" /></td>
+				<td><b>#{msgs.severity}</b></td>
+				<td><h:outputText value="#{problemReport.severity}" /></td>
+				<td><h:message /></td>
+			</tr>
+			<tr>
+				<td><b>#{msgs.dateAssigned}</b></td>
+				<td><h:outputText value="#{problemReport.dateAssigned}" /></td>
+				<td><b>#{msgs.dateFixed}</b></td>
+				<td><h:outputText value="#{problemReport.dateFixed}" /></td>
+				<td><h:message /></td>
+			</tr>
+			<tr />
+			<tr>
+				<td><h:commandButton value="#{msgs.edit}"
+						action="enterProblem" /></td>
+				<td><h:commandButton value="#{msgs.newProblem}"
+						action="#{problemReport.restart()}" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>
